@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Lab4_Es7 : MonoBehaviour
 {
     public int minimo = 10;
     public int massimo = 50;
+    public int lunghezza = 0;
 
-    int[] myArray = new int[20]; // Array usato da tutti i metodi
 
     int[] GeneraArray(int[] array, int b, int c)
     {
+
         for (int i = 0; i < array.Length; i++)
         {
             array[i] = Random.Range(b, c);
@@ -19,7 +21,7 @@ public class Lab4_Es7 : MonoBehaviour
         return array;
     }
 
-    void StampaArray()
+    void StampaArray(int[] myArray)
     {
         for (int i = 0; i < myArray.Length; i++)
         {
@@ -27,7 +29,7 @@ public class Lab4_Es7 : MonoBehaviour
         }
     }
 
-    void SommaArray()
+    void SommaArray(int[] myArray)
     {
         int somma = 0;
 
@@ -41,9 +43,10 @@ public class Lab4_Es7 : MonoBehaviour
 
     void Start()
     {
-        myArray = GeneraArray(myArray, minimo, massimo); // genera una volta sola
-        StampaArray();
-        SommaArray();
+        int[] myArray = new int[lunghezza];
+        GeneraArray(myArray, minimo, massimo);
+        StampaArray(myArray);
+        SommaArray(myArray);
     }
 
     void Update()
